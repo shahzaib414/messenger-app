@@ -2,6 +2,7 @@ import React from "react";
 import Styled from "styled-components";
 import { Avatar } from "antd";
 import { Message } from "../App";
+import { getCurrentUser } from "../utils";
 
 type Props = {
   onSelected: (id: string) => void;
@@ -40,7 +41,7 @@ const Title = Styled.div`
 
 const ChatNavigationRow = (props: Props) => {
     const getChatWith = () => {
-        const currentUser = localStorage.getItem("currentUser")
+        const currentUser = getCurrentUser()
         return props.sentBy !== currentUser && props.recievedBy === currentUser ? props.sentBy : props.recievedBy
     }
   return (

@@ -3,7 +3,7 @@ import Styled from "styled-components";
 import { Input, Button } from "antd";
 import { SendOutlined } from "@ant-design/icons";
 import { Message } from "../App";
-import { getMessageId } from "../utils";
+import { getCurrentUser, getMessageId } from "../utils";
 
 type Props = {
   chatWith: string;
@@ -66,7 +66,7 @@ const Chat = (props: Props) => {
       props.onMessageSent({
           id: getMessageId(),
         message: input,
-        sentBy: localStorage.getItem("currentUser")!,
+        sentBy: getCurrentUser()!,
         recievedBy: props.chatWith,
         date: new Date(),
       });
@@ -85,19 +85,19 @@ const Chat = (props: Props) => {
           <ChatBubble
             key={index}
             backgroundColor={
-              m.sentBy === localStorage.getItem("currentUser")
+              m.sentBy === getCurrentUser()
                 ? "#fff176"
                 : "#b3e5fc"
             }
             position={
-              m.sentBy === localStorage.getItem("currentUser")
+              m.sentBy === getCurrentUser()
                 ? "auto"
                 : "unset"
             }
           >
             {m.message}
             <div className="sent-by">
-              {m.sentBy === localStorage.getItem("currentUser")
+              {m.sentBy === getCurrentUser()
                 ? "You"
                 : m.sentBy}
             </div>

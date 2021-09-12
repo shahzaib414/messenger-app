@@ -5,6 +5,7 @@ import Styled from "styled-components";
 import "antd/dist/antd.css";
 import ChatNavigationRow from "./components/ChatNavigationRow";
 import Chat from "./components/Chat";
+import { getCurrentUser } from "./utils";
 
 const StyledHeader = Styled.header`
   text-align: center;
@@ -42,14 +43,14 @@ function App() {
       id: "xnyssdsd31",
       message: "Hi - Can i help with your Assignment",
       sentBy: "Alex",
-      recievedBy: localStorage.getItem("currentUser") || "Shahzaib Shahid",
+      recievedBy: getCurrentUser(),
       date: new Date(),
     },
     {
       id: "3hsd6%^^ass",
       message: "Hi - I hope you are doing Good",
       sentBy: "Bob",
-      recievedBy: localStorage.getItem("currentUser") || "Shahzaib Shahid",
+      recievedBy: getCurrentUser(),
       date: new Date(),
     },
   ];
@@ -101,8 +102,8 @@ function App() {
     const messages = messageState.filter((m) => {
       return (
         (m.recievedBy === selectedChat &&
-          m.sentBy === localStorage.getItem("currentUser")) ||
-        (m.recievedBy === localStorage.getItem("currentUser") &&
+          m.sentBy === getCurrentUser()) ||
+        (m.recievedBy === getCurrentUser() &&
           m.sentBy === selectedChat)
       );
     });
