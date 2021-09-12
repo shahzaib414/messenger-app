@@ -1,19 +1,19 @@
-## Messenger App
+# Messenger App
 
-# Following Features are working 
+### Following Features are working 
 
 * User can navigate between chats
 * User can View Chat History
 * User can send messages
 
-# Constraints
+### Constraints
 
 * No option to start new Chat
 * Current user is hard coded
 * When user sends new message, Message in chat title (in chat naviagtion) is not being updated.
 
 
-# To run this app
+### To run this app
 
 Install dependencies first
 ```
